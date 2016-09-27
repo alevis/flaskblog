@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+	<title>{{ title }} - levis</title>
+	{% else %}
+	<title>Welcome to levis</title>
+	{% endif %}
+</head>
+<body>
+	<div>Levis: 
+		<a href="{{ url_for('index') }}">Home</a>
+		{% if g.user.is_authenticated %}
+		| <a href="{{ url_for('logout') }}">Logout</a>
+		{% endif %}
+	</div>
+	<hr>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul>
+	{% for message in messages %}
+		<li>{{ message }}</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+	{% block content %}{% endblock %}
+</body>
+</html>
