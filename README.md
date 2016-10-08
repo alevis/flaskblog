@@ -1,6 +1,6 @@
 # Mega App Files
  1. :white_large_square: Hello World
- 2. [ ] Templates
+ 2. :white_check_mark: Templates
  3. [ ] Web Forms
  4. [ ] Database
  5. [ ] User Logins
