@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mega App Files
  1. :white_large_square: Hello World
  2. :white_check_mark: Templates
@@ -17,3 +18,7 @@
  16. :white_large_square: Debugging, Testing and Profiling
  17. :white_large_square: Deployment on Linux
  18. :white_large_square: Deployment oin the Heroku Cloud
+=======
+# flaskblog
+Simple flask blog app.
+>>>>>>> 631984c484744fbd78201049189891a2d4cc20aa
