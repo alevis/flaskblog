@@ -1,4 +1,4 @@
-# Mega App Files
+# FlaskBlog App Files
  1. :white_check_mark: Hello World
  2. :white_check_mark: Templates
  3. :white_check_mark: Web Forms
@@ -18,6 +18,6 @@
  17. :white_large_square: Deployment on Linux
  18. :white_large_square: Deployment oin the Heroku Cloud
 
-=======
-# flaskblog
-Simple flask blog app.
+
+
+
