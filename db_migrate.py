@@ -1,4 +1,4 @@
-#!flask/Scripts/python
+#!megapp/bin/python
 import imp
 from migrate.versioning import api
 from app import db

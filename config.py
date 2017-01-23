@@ -10,8 +10,8 @@ SECRET_KEY = 'you-will-never-guess'
 # mail server settings
 MAIL_SERVER = 'localhost'
 MAIL_PORT = 25
-MAIL_USERNAME = mthaneq
-MAIL_PASSWORD = password
+MAIL_USERNAME = 'mthaneq'
+MAIL_PASSWORD = 'password'
 
 # administrator list
 ADMINS = ['mthaneq@gmail.com']
