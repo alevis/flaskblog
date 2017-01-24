@@ -36,3 +36,4 @@ class TestCase(unittest.TestCase):
         assert nickname2 != nickname
     if __name__ == '__main__':
         unittest.main()
+

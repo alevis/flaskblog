@@ -6,6 +6,8 @@ class LoginForm(FlaskForm):
 	openid = StringField('openid',validators=[DataRequired()])
 	remember_me = BooleanField('remember_me',default=False)
 
+class POstForm(FlaskForm):
+    post = StringField('post',validators=[DataRequired()])
 class EditForm(FlaskForm):
     nickname = StringField('nickname',validators=[DataRequired()])
     about_me = TextAreaField('about_me',validators=[Length(min=0,max=140)])
