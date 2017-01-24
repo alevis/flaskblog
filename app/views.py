@@ -16,12 +16,19 @@ def before_request():
             db.session.add(g.user)
             db.session.commit()
 
-@app.route('/')
-@app.route('/index')
+@app.route('/',methods=['GET','POST'])
+@app.route('/index',methods=['GET','POST'])
+@app.route('/index/<int:page>',methods=['GET','POST'])
 @login_required
 def index():
-	user = g.user #{'nickname':'Levis'} # fake user
-	posts = [
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data,timestamp=datetime.utcnow(),author=g.user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('index'))
+    posts = [
 		{
 			'author': { 'nickname' : 'John' },
 			'body': 'Beautiful day in Worcester!'
