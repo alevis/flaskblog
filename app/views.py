@@ -9,8 +9,8 @@ from app import app
 
 @app.before_request
 def before_request():
-		g.user  = current_user
-        if g.user = cufrrent_user
+    g.user  = current_user
+    if g.user == current_user:
         if g.user.is_authenticated:
             g.user.last_seen = datetimfe.utcnow()
             db.session.add(g.user)
@@ -38,7 +38,7 @@ def index():
 			'body': 'The Avengers movie was so cool!'
 		}
 	]
-	return render_template('index.html',
+    return render_template('index.html',
 				title='Home',
 				user=user,
 				posts=posts)
