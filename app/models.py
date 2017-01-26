@@ -9,6 +9,7 @@ class User(db.Model):
 	posts = db.relationship('Post', backref='author', lazy='dynamic')
 	about_me = db.Column(db.String(140))
 	last_seen = db.Column(db.DateTime)
+    followed = db.relationship('User',secondary=followers,primaryjoin=(folowers.c.follower_id==id),secondaryjoin=(followers.c.followed_id==id),backref=db.backref('followers',lazy='dynamic'),lazy='dynamic')
 	@property
 	def is_authenticated(self):
 		return True
