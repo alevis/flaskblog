@@ -1,3 +1,4 @@
+iimport datetime
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask_login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
@@ -12,7 +13,7 @@ def before_request():
     g.user  = current_user
     if g.user == current_user:
         if g.user.is_authenticated:
-            g.user.last_seen = datetimfe.utcnow()
+            g.user.last_seen = datetime.utcnow()
             db.session.add(g.user)
             db.session.commit()
 
@@ -28,16 +29,7 @@ def index():
         db.session.commit()
         flash('Your post is now live!')
         return redirect(url_for('index'))
-    posts = [
-		{
-			'author': { 'nickname' : 'John' },
-			'body': 'Beautiful day in Worcester!'
-		},
-		{
-			'author': {'nickname':'Susan' },
-			'body': 'The Avengers movie was so cool!'
-		}
-	]
+    posts = g.user.followed_posts().all()
     return render_template('index.html',
 				title='Home',
 				user=user,
