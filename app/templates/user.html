@@ -13,7 +13,15 @@
         {% if user.id == g.user.id %}<p><a href="{{ url_for('edit') }}">Edit</a></p>
         {% endif %}
     <hr>
-    {% for post in posts %}
+    <!-- posts is a Paginate object -->
+    {% for post in posts.items %}
         {% include 'post.html' %}
     {% endfor %}
+    {% if posts.has_prev %}
+        <a href="{{ url_for('user',nickname=user.nickname,page=posts.prev_num) }}">
+            &lt;&lt; Newer posts</a>
+        {% else %}&lt;&lt; Newer posts
+    {% endif %}|
+    {% if posts.has_next %}<a href="{{ url_for('user',nickname=user.nickname, page=posts.next_num) }}">
+        Older posts &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
 {% endblock %}
