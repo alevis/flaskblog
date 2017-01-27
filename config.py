@@ -7,7 +7,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 WTF_CSRF_ENABLED = True
 SECRET_KEY = 'you-will-never-guess'
 WHOOSH_BASE = os.path.join(basedir,'search.db')
-
+MAX_SEARCH_RESULTS = 50
 # pagination
 POSTS_PER_PAGE = 3
 
