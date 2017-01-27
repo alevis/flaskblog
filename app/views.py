@@ -11,11 +11,11 @@ from config import POSTS_PER_PAGE
 @app.before_request
 def before_request():
     g.user  = current_user
-    if g.user == current_user:
-        if g.user.is_authenticated:
-            g.user.last_seen = datetime.utcnow()
-            db.session.add(g.user)
-            db.session.commit()
+    if g.user.is_authenticated:
+        g.user.last_seen = datetime.utcnow()
+        db.session.add(g.user)
+        db.session.commit()
+        g.search_form = SearchForm()
 
 @app.route('/',methods=['GET','POST'])
 @app.route('/index',methods=['GET','POST'])
