@@ -1,13 +1,13 @@
 import os
-from flask import Flask
+from flask import Flask#, request, url_for
 from flask_login import LoginManager
 from flask_openid import OpenID
-from config import basedir, ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
-
-from flask import Flask, request, url_for
+from config import basedir#, MAIL_PORT, MAIL_USERNAME
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail
 
 app = Flask(__name__)
+mail = Mail(app)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 
@@ -25,4 +25,4 @@ if not app.debug:
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
     app.logger.info('megapp startup')
-from app import views, models
+#from app import views#, models
