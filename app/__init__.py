@@ -5,10 +5,12 @@ from flask_openid import OpenID
 from config import basedir#, MAIL_PORT, MAIL_USERNAME
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
+from flask_babel import Babel
 from .momentjs import momentjs
 __all__ = ["views","models"]
 
 app = Flask(__name__)
+babel = Babel(app)
 mail = Mail(app)
 app.config.from_object('config')
 db = SQLAlchemy(app)

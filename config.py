@@ -22,6 +22,12 @@ MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 # administrator list
 ADMINS = ['leevopergmail.com']
 
+
+LANGUAGES = {
+    'en':'English',
+    'es':'Espanol'
+}
+
 OPENID_PROVIDERS = [
 	{ 'name':'Google','url':'https://www.google.com/accounts/08/id' },
 	{ 'name':'Yahoo', 'url':'https://me.yahoo.com' },
