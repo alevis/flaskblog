@@ -2,5 +2,11 @@
     <tr valign="top">
         <td><img src="{{ post.author.avatar(50) }}"></td>
         <td><i>{{ post.author.nickname }} says:</i><br>{{ post.body }}</td>
+        <td>
+            <p><a href="{{ url_for('user',nickname=post.author.nickname) }}">{{
+                post.author.nickname
+                }}</a> said {{momentjs(post.timestamp).fromNow()}};</p>
+        </td>
+        <td><p><strong>{{post.body}}</strong></p></td>
     </tr>
 </table>

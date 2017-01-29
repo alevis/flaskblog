@@ -5,12 +5,14 @@ from flask_openid import OpenID
 from config import basedir#, MAIL_PORT, MAIL_USERNAME
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
+from .momentjs import momentjs
 __all__ = ["views","models"]
 
 app = Flask(__name__)
 mail = Mail(app)
 app.config.from_object('config')
 db = SQLAlchemy(app)
+app.jinja_env.globals['momentjs'] = momentjs
 
 lm = LoginManager()
 lm.init_app(app)
