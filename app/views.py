@@ -1,13 +1,11 @@
 import datetime
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask_login import login_user, logout_user, current_user, login_required
-from app import app, db, lm, oid
 from .forms import LoginForm, EditForm, PostForm, SearchForm
 from .models import User, Post
 from .emails import follower_notification
 from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS
-from app import app
-
+from app import app, db, lm, oid
 
 @app.before_request
 def before_request():
@@ -56,7 +54,7 @@ def login():
 def user(nickname,page=1):
     user = User.query.filter_by(nickname=nickname).first()
     if user == None:
-        flask('User %s not found.' % nickname)
+        flash('User %s not found.' % nickname)
         return redirect(url_for('index'))
     posts = user.posts.paginate(page, POSTS_PER_PAGE, False)
     return render_template('user.html',user=user,posts=posts)

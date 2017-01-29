@@ -5,6 +5,7 @@ from flask_openid import OpenID
 from config import basedir#, MAIL_PORT, MAIL_USERNAME
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
+__all__ = ["views","models"]
 
 app = Flask(__name__)
 mail = Mail(app)
@@ -25,4 +26,4 @@ if not app.debug:
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
     app.logger.info('megapp startup')
-#from app import views#, models
+from app import views, models
