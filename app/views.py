@@ -4,8 +4,13 @@ from flask_login import login_user, logout_user, current_user, login_required
 from .forms import LoginForm, EditForm, PostForm, SearchForm
 from .models import User, Post
 from .emails import follower_notification
-from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS
-from app import app, db, lm, oid
+from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, LANGUAGES
+from app import app, db, lm, oid, babel
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(LANGUAGES.keys())
+
 
 @app.before_request
 def before_request():
