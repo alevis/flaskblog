@@ -1,6 +1,7 @@
 import datetime
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask_login import login_user, logout_user, current_user, login_required
+from guess_language import guessLanguage
 from .forms import LoginForm, EditForm, PostForm, SearchForm
 from .models import User, Post
 from .emails import follower_notification
@@ -28,6 +29,9 @@ def before_request():
 def index(page=1):
     form = PostForm()
     if form.validate_on_submit():
+        language = guessLanguage(form.post.data)
+        if language == 'UNKOWN' or len(language)>5:
+            language = ''
         post = Post(body=form.post.data,timestamp=datetime.utcnow(),author=g.user)
         db.session.add(post)
         db.session.commit()
