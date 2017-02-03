@@ -1,9 +1,10 @@
 from flask import render_template
 from flask_mail import Message
 from app import mail
-from .decorator import async
+from decorator import async
 from config import ADMINS
 from app import app
+
 @async
 def send_async_email(app,msg):
     with app.app_context():
