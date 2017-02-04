@@ -32,7 +32,10 @@ def index(page=1):
         language = guessLanguage(form.post.data)
         if language == 'UNKOWN' or len(language)>5:
             language = ''
-        post = Post(body=form.post.data,timestamp=datetime.utcnow(),author=g.user)
+        post = Post(body=form.post.data,
+                timestamp=datetime.utcnow(),
+                author=g.user,
+                language=language)
         db.session.add(post)
         db.session.commit()
         flash('Your post is now live!')

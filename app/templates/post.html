@@ -8,5 +8,8 @@
                 }}</a> said {{momentjs(post.timestamp).fromNow()}};</p>
         </td>
         <td><p><strong>{{post.body}}</strong></p></td>
+{% if post.language != None and post.language != '' and post.language != g.locale%}
+<div><a href="#">{{ _('Translate') }}</a></div>
+{% endif %}
     </tr>
 </table>
