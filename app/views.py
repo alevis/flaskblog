@@ -144,3 +144,12 @@ def follow(nickname):
     user = User.query.filter_by(nickname=nickname).first()
     follower_notification(user,g.user)
     return redirect(url_for('user',nickname=nickname))
+
+@app.route('/translate',methods=['POST'])
+@login_required
+def translate():
+    return jsonify({
+        'text':microsoft_translate(
+            request.form['form'],
+            request.form['sourceLang'],
+            request.form['destLang'])})
