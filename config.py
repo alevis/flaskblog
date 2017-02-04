@@ -22,6 +22,9 @@ MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 # administrator list
 ADMINS = ['leevopergmail.com']
 
+# microsoft translation service
+MS_TRANSLATOR_CLIENT_ID = '' #enter your MS translator app id here
+MS_TRANSLATOR_CLIENT_SECRET = '' #enter your MS translator app secret here
 
 LANGUAGES = {
     'en':'English',
