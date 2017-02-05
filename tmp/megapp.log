@@ -26,3 +26,7 @@
 2017-01-29 00:04:34,897 INFO: megapp startup [in /home/levis/Desktop/fullstack/flask/megapp/app/__init__.py:32]
 2017-01-29 00:06:22,875 INFO: megapp startup [in /home/levis/Desktop/fullstack/flask/megapp/app/__init__.py:32]
 2017-02-02 22:19:18,522 INFO: megapp startup [in /home/levis/Desktop/fullstack/flask/megapp/app/__init__.py:32]
+2017-02-04 18:34:54,935 INFO: megapp startup [in app/__init__.py:32]
+2017-02-04 18:42:58,974 INFO: megapp startup [in app/__init__.py:32]
+2017-02-04 18:49:17,299 INFO: megapp startup [in app/__init__.py:32]
+2017-02-04 18:52:54,781 INFO: megapp startup [in app/__init__.py:32]
